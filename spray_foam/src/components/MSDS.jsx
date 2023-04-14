@@ -16,13 +16,13 @@ export default function MSDS() {
             <h3 className='text-3xl'>Low Density/Open-Cell SPF - 0.5 lbs.</h3>
             <span className='text-xl'>(UPC 500 REGULAR - UPC 500 MAX - UPC 500 Winter - UPC 500 Super Winter - UPC 500 OCX)</span>
             <p className='text-2xl w-4/5'>Application: spray to substrate R-Value of 3.9 per in. Impermeable to air Expands to 150 x original volume Semi-Rigid Non-structural plastic barrier</p>
-            <img className='' src='./src/assets/open.png'/>
+            <img className='' src='/open.png'/>
         </div>
         <div className='grid justify-items-center'>
             <h3 className='text-3xl'>High Density/Closed-Cell SPF - 2 lbs.</h3>
             <span className='text-xl'>(UPC 2.0 - REGULAR, WINTER, SUPER WINTER, SUMMER, HIGH LIFT)</span>
             <p className='text-2xl w-4/5'>Application: spray to substrate R-Value of over 6.6 per in. Impermeable to air & moisture Expands to 50 x original volume Rigid plastic barrier Provides increased structural integrity</p>
-            <img className='' src='./src/assets/close.png'/>
+            <img className='' src='/close.png'/>
         </div>
       </div>
     </div>
