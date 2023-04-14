@@ -11,7 +11,7 @@ export default function Home() {
             <h2 className='text-slate-500'>Jesse (999)-555-4545</h2>
             <h2 className='text-slate-500'>Roy (999)-555-4545</h2>
         </div>
-      <img className='col-start-2 self-center' src='./src/assets/companyBrandImage.jpg'></img>
+      <img className='col-start-2 self-center' src='/images/companyBrandImage.jpg'></img>
     </div>
   )
 }

@@ -9,7 +9,7 @@ export default function Gallery() {
     useEffect(() => {
         async function fetchImages() {
             // context file urls are broken
-          const context = await import.meta.glob('../assets/images/*.{jpg,jpeg,png,gif}');
+          const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
           const imageUrls = Object.values(context).map(ele => ele.name);
           setImages(urlFixer(imageUrls));
         }

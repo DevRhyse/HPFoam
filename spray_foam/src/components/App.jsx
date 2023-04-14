@@ -13,7 +13,7 @@ export default function App() {
   }
 
   return (
-    <div className="grid bg-[url('./foamTest.webp')] bg-cover w-screen h-screen font-sans">
+    <div className="grid bg-[url('/foamTest.webp')] bg-cover w-screen h-screen font-sans">
       <div className='grid justify-items-center pt-5 w-3/4 mx-auto'>
         <Nav handleClick={handleComponentChange}/>
         {activeComponent === 1 && <Home />}
