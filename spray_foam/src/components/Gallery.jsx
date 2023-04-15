@@ -1,7 +1,10 @@
 import React, {useState, useEffect } from 'react'
 
+
+
+
 // Makes file url work
-const urlFixer = (block) => block.map(ele => ele = ele.replace('../', '/')) 
+const urlFixer = (block) => block.map(ele => ele = ele.replace('/public', '')) 
 
 export default function Gallery() {
     const [images, setImages] = useState([]);
@@ -9,7 +12,7 @@ export default function Gallery() {
     useEffect(() => {
         async function fetchImages() {
             // context file urls are broken
-          const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
+          const context = await import.meta.glob('/public/images/*.{jpg,jpeg,png,gif}');
           const imageUrls = Object.values(context).map(ele => ele.name);
           console.log(context)
           console.log(imageUrls)
@@ -27,18 +30,18 @@ export default function Gallery() {
     //   setImages(urlFixer(imageUrls));
     // }, []);
 
-    useEffect(() => {
-      async function fetchImages() {
-        const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
-        const imageUrls = Object.values(context).map((ele) => {
-          // Use process.env.PUBLIC_URL to reference images in the public folder
-          return `${process.env.PUBLIC_URL}${ele.slice(1)}`;
-        });
-        console.log(context);
-        setImages(imageUrls);
-      }
-      fetchImages();
-    }, []);
+    // useEffect(() => {
+    //   async function fetchImages() {
+    //     const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
+    //     const imageUrls = Object.values(context).map((ele) => {
+    //       // Use process.env.PUBLIC_URL to reference images in the public folder
+    //       return `${process.env.PUBLIC_URL}${ele.slice(1)}`;
+    //     });
+    //     console.log(context);
+    //     setImages(imageUrls);
+    //   }
+    //   fetchImages();
+    // }, []);
 
     return (
         <div className='bg-white border-solid border-2 w-10/12 rounded-lg shadow-2xl'>
