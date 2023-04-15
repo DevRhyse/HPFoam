@@ -17,7 +17,7 @@ export default function App() {
       <div className='grid justify-items-center pt-5 w-3/4 mx-auto'>
         <Nav handleClick={handleComponentChange}/>
         {activeComponent === 1 && <Home />}
-        {activeComponent === 2 && <Gallery />}
+        {activeComponent === 2 && <Gallery handleClick={handleComponentChange}/>}
         {activeComponent === 3 && <Contact />}
         {activeComponent === 4 && <MSDS />}
           <div className=' '>
