@@ -21,35 +21,14 @@ export default function Gallery() {
         fetchImages();
       }, [])
 
-    // useEffect(() => {
-    //   // Load all images from the /images folder at build time
-    //   const imageFiles = require.context('../public/images', true, /\.(jpg|jpeg|png|gif)$/);
-    //   const imageUrls = imageFiles.keys().map(key => imageFiles(key));
-    //   console.log(context)
-    //   console.log(imageUrls)
-    //   setImages(urlFixer(imageUrls));
-    // }, []);
-
-    // useEffect(() => {
-    //   async function fetchImages() {
-    //     const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
-    //     const imageUrls = Object.values(context).map((ele) => {
-    //       // Use process.env.PUBLIC_URL to reference images in the public folder
-    //       return `${process.env.PUBLIC_URL}${ele.slice(1)}`;
-    //     });
-    //     console.log(context);
-    //     setImages(imageUrls);
-    //   }
-    //   fetchImages();
-    // }, []);
 
     return (
         <div className='bg-white border-solid border-2 w-10/12 rounded-lg shadow-2xl'>
             <h1 className='grid justify-center text-3xl my-5'>Here is just a few example of our exceptional work!</h1>
             <h3 className='grid justify-center text-2xl'>Want to know more about what we're installing?</h3>
-            <div className="mt-10 mx-16 grid grid-cols-4 grid-flow-row gap-y-12">
+            <div className="mt-10 mx-16 grid grid-cols-4 grid-flow-row gap-x-12 gap-y-12">
                 {images.map((imageUrl, index) => (
-                    <img src={imageUrl} key={`${imageUrl}_${index}`} alt="image" className='h-72 w-72 object-cover'/>
+                    <img src={imageUrl} key={`${imageUrl}_${index}`} alt="image" className='h-52 w-52 object-cover'/>
             ))}
             
             </div>
