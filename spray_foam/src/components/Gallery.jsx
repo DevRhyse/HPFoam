@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react'
 
 // Makes file url work
-const urlFixer = (block) => block.map(ele => ele = ele.replace('../', './src/')) 
+// const urlFixer = (block) => block.map(ele => ele = ele.replace('../', './src/')) 
 
 export default function Gallery() {
     const [images, setImages] = useState([]);
@@ -18,13 +18,26 @@ export default function Gallery() {
     //     fetchImages();
     //   }, [])
 
+    // useEffect(() => {
+    //   // Load all images from the /images folder at build time
+    //   const imageFiles = require.context('../public/images', true, /\.(jpg|jpeg|png|gif)$/);
+    //   const imageUrls = imageFiles.keys().map(key => imageFiles(key));
+    //   console.log(context)
+    //   console.log(imageUrls)
+    //   setImages(urlFixer(imageUrls));
+    // }, []);
+
     useEffect(() => {
-      // Load all images from the /images folder at build time
-      const imageFiles = require.context('../public/images', true, /\.(jpg|jpeg|png|gif)$/);
-      const imageUrls = imageFiles.keys().map(key => imageFiles(key));
-      console.log(context)
-      console.log(imageUrls)
-      setImages(urlFixer(imageUrls));
+      async function fetchImages() {
+        const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
+        const imageUrls = Object.values(context).map((ele) => {
+          // Use process.env.PUBLIC_URL to reference images in the public folder
+          return `${process.env.PUBLIC_URL}${ele.slice(1)}`;
+        });
+        console.log(context);
+        setImages(imageUrls);
+      }
+      fetchImages();
     }, []);
 
     return (
