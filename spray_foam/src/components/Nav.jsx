@@ -18,16 +18,16 @@ export default function Nav(prop) {
   }
 
   return (
-    <div className="grid grid-cols-4 grid-rows-1 grid-flow-row w-1/3 mt-36">
-        <FontAwesomeIcon icon={faHouse} size="8x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => {handleComponentChange(1); imageChange(1)}} />
+    <div className="grid grid-cols-4 grid-rows-1 grid-flow-row w-2/6 py-5">
+        <FontAwesomeIcon icon={faHouse} size="5x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => {handleComponentChange(1); imageChange(1)}} />
 
-        {activeComponent === 2 && <FontAwesomeIcon icon={faFolderOpen} size="8x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => { handleComponentChange(2)}}/>}
+        {activeComponent === 2 && <FontAwesomeIcon icon={faFolderOpen} size="5x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => { handleComponentChange(2)}}/>}
 
-        {activeComponent === 1 && <FontAwesomeIcon icon={faFolder} size="8x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => {handleComponentChange(2); imageChange(2)}}/>}
+        {activeComponent === 1 && <FontAwesomeIcon icon={faFolder} size="5x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => {handleComponentChange(2); imageChange(2)}}/>}
 
-        <FontAwesomeIcon icon={faEnvelope} size="8x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => {imageChange(1); handleComponentChange(3)}}/>
+        <FontAwesomeIcon icon={faEnvelope} size="5x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => {imageChange(1); handleComponentChange(3)}}/>
 
-        <FontAwesomeIcon icon={faFile} size="8x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => {handleComponentChange(4); imageChange(1)}} />
+        <FontAwesomeIcon icon={faFile} size="5x" style={{color: "#ffffff",}} className='opacity-100' onClick={() => {handleComponentChange(4); imageChange(1)}} />
     </div>
   )
 }
