@@ -6,18 +6,26 @@ const urlFixer = (block) => block.map(ele => ele = ele.replace('../', './src/'))
 export default function Gallery() {
     const [images, setImages] = useState([]);
     
-    useEffect(() => {
-        async function fetchImages() {
-            // context file urls are broken
-          const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
-          const imageUrls = Object.values(context).map(ele => ele.name);
-          console.log(context)
-          console.log(imageUrls)
-          setImages(urlFixer(imageUrls));
-        }
-        fetchImages();
-      }, [])
+    // useEffect(() => {
+    //     async function fetchImages() {
+    //         // context file urls are broken
+    //       const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
+    //       const imageUrls = Object.values(context).map(ele => ele.name);
+    //       console.log(context)
+    //       console.log(imageUrls)
+    //       setImages(urlFixer(imageUrls));
+    //     }
+    //     fetchImages();
+    //   }, [])
 
+    useEffect(() => {
+      // Load all images from the /images folder at build time
+      const imageFiles = require.context('../public/images', true, /\.(jpg|jpeg|png|gif)$/);
+      const imageUrls = imageFiles.keys().map(key => imageFiles(key));
+      console.log(context)
+      console.log(imageUrls)
+      setImages(urlFixer(imageUrls));
+    }, []);
 
     return (
         <div className='bg-white border-solid border-2 w-10/12 rounded-lg shadow-2xl'>
