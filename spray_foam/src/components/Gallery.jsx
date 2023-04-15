@@ -1,22 +1,22 @@
 import React, {useState, useEffect } from 'react'
 
 // Makes file url work
-// const urlFixer = (block) => block.map(ele => ele = ele.replace('../', './src/')) 
+const urlFixer = (block) => block.map(ele => ele = ele.replace('../', '/')) 
 
 export default function Gallery() {
     const [images, setImages] = useState([]);
     
-    // useEffect(() => {
-    //     async function fetchImages() {
-    //         // context file urls are broken
-    //       const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
-    //       const imageUrls = Object.values(context).map(ele => ele.name);
-    //       console.log(context)
-    //       console.log(imageUrls)
-    //       setImages(urlFixer(imageUrls));
-    //     }
-    //     fetchImages();
-    //   }, [])
+    useEffect(() => {
+        async function fetchImages() {
+            // context file urls are broken
+          const context = await import.meta.glob('/images/*.{jpg,jpeg,png,gif}');
+          const imageUrls = Object.values(context).map(ele => ele.name);
+          console.log(context)
+          console.log(imageUrls)
+          setImages(urlFixer(imageUrls));
+        }
+        fetchImages();
+      }, [])
 
     // useEffect(() => {
     //   // Load all images from the /images folder at build time
